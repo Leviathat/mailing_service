@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  mailer:
+    build:
+      context: ./mailer
+      dockerfile: Dockerfile
+    volumes:
+      - .:/code
+    env_file:
+    - ./mailer/.env
+    ports:
+      - "8000:8000"
+    working_dir: /code/mailer
