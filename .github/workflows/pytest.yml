@@ -3,7 +3,7 @@ name: Mailing
 on: [push]
 
 env:
-  PYTHON: "3.9"
+  python_version: "3.9"
   
 jobs:
   build:
@@ -16,7 +16,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: $PYTHON
+          python-version: $python_version
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
