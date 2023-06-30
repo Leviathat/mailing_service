@@ -3,13 +3,24 @@ name: Mailing
 on: [push]
 
 jobs:
+  checkout:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Chekcout repository
+        uses: actions/checkout@v3
+        
   build:
+    needs: checkout
     runs-on: ubuntu-latest
     
     steps:
-      - name: Chekcout repository
-        uses: actions/checkout@v3
       - name: Build service
         run: docker-compose up -d
+      
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    
+    steps:
       - name: Test with pytest
-        run: pytest
+        run: docker-compose exec -T mailer pytest
