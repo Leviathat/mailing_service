@@ -7,6 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+      - name: Chekcout repository
+        uses: actions/checkout@v3
+        
       - name: Build service
         run: docker-compose up -d
       
