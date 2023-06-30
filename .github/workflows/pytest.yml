@@ -1,6 +1,6 @@
 name: Mailing
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
@@ -18,5 +18,5 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Test with pytest
+      - name: Pytest executing
         run: docker-compose exec -it mailer pytest
