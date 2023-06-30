@@ -19,4 +19,4 @@ jobs:
     
     steps:
       - name: Test with pytest
-        run: docker-compose exec -T mailer pytest
+        run: docker-compose exec -it mailer pytest
